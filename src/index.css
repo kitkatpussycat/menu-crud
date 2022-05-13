@@ -2,16 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
 @layer base {
   input {
     @apply border;
     @apply border-2;
-    @apply w-fit h-fit m-1;
+    @apply w-full h-fit m-1 p-0.5 pl-2;
+  }
+
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  th,
+  td {
+    @apply px-1 py-1 border border-2 w-52;
+  }
+
+  button {
+    @apply px-5 py-1 mx-1 rounded-lg hover:text-white font-bold transition-all;
+  }
+
+  div {
+    @apply rounded-lg;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-blue-500 w-fit m-2;
+    @apply bg-[#F4F9F4] w-80 h-80 m-2 p-5 flex flex-col gap-2 overflow-y-auto border border-black;
   }
+
+  .perInput {
+    @apply flex flex-col w-full;
+  }
+
+  .products__container {
+    margin: 0 auto;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
