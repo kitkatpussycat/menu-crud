@@ -191,40 +191,42 @@ const Form = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {options.map((opt) => (
-                    <tr key={opt.id}>
-                      <td>{opt.optionName}</td>
-                      <td>{opt.price}</td>
-                      <td>{opt.cost}</td>
-                      <td>{opt.quantity}</td>
-                      <td>
-                        <button
-                          className='bg-[#74B49B] px-2'
-                          onClick={() => {
-                            setEditId(opt.id);
-                            setOptionStatus('edit');
-                            setOption({
-                              id: opt.id,
-                              optionName: opt.optionName,
-                              price: opt.price,
-                              cost: opt.cost,
-                              quantity: opt.quantity,
-                            });
-                          }}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className='bg-red-500 px-2'
-                          onClick={() => {
-                            deleteOption(opt.id);
-                          }}
-                        >
-                          del
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                  {options
+                    .sort((a, b) => (a.id > b.id ? 1 : -1))
+                    .map((opt) => (
+                      <tr key={opt.id}>
+                        <td>{opt.optionName}</td>
+                        <td>{opt.price}</td>
+                        <td>{opt.cost}</td>
+                        <td>{opt.quantity}</td>
+                        <td>
+                          <button
+                            className='bg-[#74B49B] px-2'
+                            onClick={() => {
+                              setEditId(opt.id);
+                              setOptionStatus('edit');
+                              setOption({
+                                id: opt.id,
+                                optionName: opt.optionName,
+                                price: opt.price,
+                                cost: opt.cost,
+                                quantity: opt.quantity,
+                              });
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className='bg-red-500 px-2'
+                            onClick={() => {
+                              deleteOption(opt.id);
+                            }}
+                          >
+                            del
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>
